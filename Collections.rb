@@ -11,13 +11,29 @@ room_data = { data: { rooms:
 }
 
 # Retrieve the capacity of room 201 and store it in a variable.
-room_201_capacity = room_data[:data][:rooms][0][:capacity]
-puts room_201_capacity
+room_201_cap = 0
+room_data[:data][:rooms].each do |x|
+  if x[:room_number] == "201"
+    room_201_cap = x[:capacity]
+  end
+end
+p room_201_cap
 
 # Find all the events taking place in room 201.
 # Iterate through them and print "ok" if the number of planned attendees will fit in the room.
-room_data[:data][:events].each do |capacity|
-	if capacity[:room_id] == 1 && capacity[:attendees] <= room_201_capacity
-		puts "ok"
-	end
+
+room_data[:data][:events].each do |y|
+  if y[:room_id] == 1
+    if y[:attendees] <= room_201_cap
+      puts "ok"
+    end
+  end
 end
+
+
+
+# room_data[:data][:rooms].each do |room|
+#   if room[:room_number] = "201"
+#     room_201_id = room[:id]
+#   end
+# end
