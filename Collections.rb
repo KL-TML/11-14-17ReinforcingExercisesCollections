@@ -29,11 +29,3 @@ room_data[:data][:events].each do |y|
     end
   end
 end
-
-
-
-# room_data[:data][:rooms].each do |room|
-#   if room[:room_number] = "201"
-#     room_201_id = room[:id]
-#   end
-# end
